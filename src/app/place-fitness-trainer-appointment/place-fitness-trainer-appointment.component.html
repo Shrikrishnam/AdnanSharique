@@ -1,0 +1,197 @@
+<form [formGroup]="fitnessForm" class="text-center border border-light p-5" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-row mb-4">
+        <div class="col">
+        <label for="firstName" class="float-left">First Name </label>
+        <input type="text" id="firstName" formControlName="firstname" class="form-control" placeholder="First Name" />
+        <small class="form-text text-danger" *ngIf="fitnessForm.controls.firstname.touched && 
+            fitnessForm.controls.firstname.errors?.required"
+            >
+            Please enter First Name !
+        </small>
+        <small class="form-text text-danger" *ngIf="fitnessForm.controls.firstname.touched &&
+            fitnessForm.controls.firstname.errors?.pattern"
+        >
+        Please enter valid First Name !
+        </small>
+        </div>
+        <div class="col">
+        <label for="LastName" class="float-left">Last Name </label>
+        <input type="text" id="LastName" formControlName="lastname" class="form-control" placeholder="Last Name" />
+        <small class="form-text text-danger" *ngIf="fitnessForm.controls.lastname.touched && 
+        fitnessForm.controls.lastname.errors?.required"
+        >
+        Please enter Last Name !
+        </small>
+        <small class="form-text text-danger" *ngIf="fitnessForm.controls.lastname.touched &&
+            fitnessForm.controls.lastname.errors?.pattern"
+        >
+        Please enter valid Last Name !
+        </small>
+        </div>
+    </div>
+    <div class="form-row mb-4">
+        <div class="col-3">
+        <label for="Age" class="float-left">Age </label>
+        <input type="number" id="Age" class="form-control" formControlName="age" placeholder="Age" />
+        <small class="form-text text-danger" *ngIf="fitnessForm.controls.age.touched && 
+        fitnessForm.controls.age.errors?.required"
+        >
+        Please enter Age !
+        </small>
+        <small class="form-text text-danger" *ngIf="(fitnessForm.controls.age.touched && 
+        fitnessForm.controls.age.errors?.min) || fitnessForm.controls.age.errors?.max"
+        >
+        Please enter Valid Age !
+        </small>
+        </div>
+        <div class="col-9">
+        <label for="Email" class="float-left">E-mail </label>
+        <input type="email" id="Email" formControlName="email" class="form-control" placeholder="abc.123@xyz.com" />
+        <small class="form-text text-danger" *ngIf="fitnessForm.controls.email.touched && 
+        fitnessForm.controls.email.errors?.required"
+        >
+        Please enter Email !
+        </small>
+        <small class="form-text text-danger" *ngIf="fitnessForm.controls.email.touched && 
+        fitnessForm.controls.email.errors?.pattern"
+        >
+        Please enter Valid Email !
+        </small>
+        </div>
+    </div>
+
+    <label for="PhoneNumber" class="float-left">Phone Number </label>
+    <input type="text" id="PhoneNumber" formControlName="phonenumber" class="form-control" placeholder="9998887777" />
+    <small class="form-text text-danger" *ngIf="fitnessForm.controls.phonenumber.touched && 
+    fitnessForm.controls.phonenumber.errors?.required"
+    >
+    Please enter Phone Number !
+    </small>
+    <small class="form-text text-danger" *ngIf="fitnessForm.controls.phonenumber.touched && 
+    fitnessForm.controls.phonenumber.errors?.pattern"
+    >
+    Please enter Valid Phone Number !
+    </small>
+
+    <fieldset class="border p-2 mt-4">
+        <legend class="w-auto" style="text-align: left; font-size: 18px;">
+            Address
+        </legend>
+        <textarea class="form-control col-12" row="2" formControlName="streetaddress" placeholder="Street Address" id="Address"></textarea>
+        <small class="form-text text-danger" *ngIf="fitnessForm.controls.streetaddress.touched && 
+        fitnessForm.controls.streetaddress.errors?.required"
+        >
+        Please enter Street Address !
+        </small>
+        <div class="form-row mb-4">
+            <div class="col">
+                <label for="City" class="float-left">City </label>
+                <input type="text" id="City" formControlName="city" class="form-control" placeholder="City" />
+                <small class="form-text text-danger" *ngIf="fitnessForm.controls.city.touched && 
+                fitnessForm.controls.city.errors?.required"
+                >
+                Please enter City !
+                </small>    
+            </div>
+            <div class="col">
+                <label for="State" class="float-left">State </label>
+                <input type="text" id="State" formControlName="state" class="form-control" placeholder="State" />
+                <small class="form-text text-danger" *ngIf="fitnessForm.controls.state.touched && 
+                fitnessForm.controls.state.errors?.required"
+                >
+                Please enter State !
+                </small>    
+            </div>
+        </div>
+        
+        <div class="form-row mb-4">
+            <div class="col">
+                <label for="Country" class="float-left">Country </label>
+                <input type="text" id="Country" formControlName="country" class="form-control" placeholder="Country" />
+                <small class="form-text text-danger" *ngIf="fitnessForm.controls.country.touched && 
+                fitnessForm.controls.country.errors?.required"
+                >
+                Please enter Country !
+                </small>    
+            </div>
+            <div class="col">
+                <label for="Pincode" class="float-left">Pincode </label>
+                <input type="text" id="Pincode" formControlName="pincode" class="form-control" placeholder="Pincode" />
+                <small class="form-text text-danger" *ngIf="fitnessForm.controls.pincode.touched && 
+                fitnessForm.controls.pincode.errors?.required"
+                >
+                Please enter Pincode !
+                </small>
+                <small class="form-text text-danger" *ngIf="fitnessForm.controls.pincode.touched && 
+                fitnessForm.controls.pincode.errors?.pattern"
+                >
+                Please enter Valid Pincode !
+                </small>    
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="container text-left mt-4">
+        Trainer Preference 
+        <div class="radio ml-4 mt-3">
+            <label>
+                <input type="radio" value="male" name="trainerpreference" formControlName="trainerpreference" /> Male
+            </label>
+        </div>
+        <div class="radio ml-4">
+            <label>
+                <input type="radio" value="female" name="trainerpreference" formControlName="trainerpreference" /> Female
+            </label>
+        </div>
+        <div class="radio ml-4">
+            <label>
+                <input type="radio" value="no preference" name="trainerpreference" formControlName="trainerpreference" />
+            No Preference</label>
+        </div>
+    </div>
+
+    <div class="container-fluid text-left mt-4">
+        Do you need a Physiotherapist ? 
+        <div class="radio">
+            <label class="col-3"><input type="radio" value="yes" formControlName="physiotherapist"
+                name="physiotherapist" /> Yes</label>
+            <label class="col-3"><input type="radio" value="no" formControlName="physiotherapist"
+                name="physiotherapist" /> No</label>
+        </div>
+    </div>
+
+    <div class="container-fluid text-left mt-4">
+        Select a Package :  
+        <div class="radio">
+            <label class="col-4"><input type="radio" value="&#8377; 1000 per session" formControlName="packages"
+                name="packages" (click)="calculate(1000,1)" /> One Time Assessment </label>
+            <label class="col-8">(&#8377; 1000)</label>
+        </div>
+        <div class="radio">
+            <label class="col-4"><input type="radio" value="&#8377; 500 per session" formControlName="packages"
+                name="packages" (click)="calculate(500,4)" /> 4 Week Session </label>
+            <label class="col-8">(&#8377; 500 / Session)</label>
+        </div>
+        <div class="radio">
+            <label class="col-4"><input type="radio" value="&#8377; 250 per session" formControlName="packages"
+                name="packages" (click)="calculate(250,12)" /> 12 Week Session </label>
+            <label class="col-8">(&#8377; 250 / Session)</label>
+        </div>
+    </div>
+    
+    <div class="form-row m-4">
+        <span class="col-2 text-left">Total</span>
+        <div class="col-4">
+            <input type="number" id="Inr" class="form-control" formControlName="inr" placeholder="INR" readonly />
+        </div>
+        <span class="col-2">:</span>
+        <div class="col-4">
+            <input type="number" id="paisa" class="form-control" formControlName="paisa" placeholder="PAISA" readonly />
+        </div>
+    </div>
+
+    <button class="btn btn-outline-primary btn-block text-uppercase mt-4" type="submit">
+        Submit
+    </button>
+
+</form>

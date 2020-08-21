@@ -1,0 +1,28 @@
+<div>
+    <table class="table table-hover table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="h1">Sl NO</th>
+            <th scope="col" class="h2">Name</th>
+            <th scope="col" class="h3">Address</th>
+            <th scope="col" class="h4">City</th>
+            <th scope="col" class="h5">Package</th>
+            <th scope="col" class="h6">Trainer Preference</th>
+            <th scope="col" class="h7">Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of Fitness">
+            <td>{{data.id}}</td>
+            <td>{{data.firstname + " " + data.lastname}}</td>
+            <td>{{data.streetaddress + ", " + data.state + ", " + data.country}}</td>
+            <td>{{data.city}}</td>
+            <td>{{data.packages}}</td>
+            <td>{{data.trainerpreference}}</td>
+            <td>{{data.phonenumber}}</td>
+            <td><i class="fa fa-edit" style="font-size:32px;color:#4caf50" (click)="editfitness(data.id)"></i></td>
+            <td><i class="fa fa-trash-o" style="font-size:32px;color:red" (click)="deletefitness(data.id)"></i></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
